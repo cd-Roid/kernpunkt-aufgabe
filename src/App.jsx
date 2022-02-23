@@ -39,18 +39,26 @@ function App() {
 		} catch (error) {
 			console.log(error);
 		}
-
 	};
 	const removeFromCart = (item) => {
-		if (cart.length === 0) {
-			console.log("Cart is Empty");
-			return;
-		} else {
-			if (cart.includes(item)) {
-				const newState = cart.filter((el) => el.title !== item.title);
+		try {
+			const state = cart;
+			const index = state.findIndex((el) => el.item.title === item.title);
+			if (cart.length === 0) {
+				console.log("Cart is Empty");
+			}
+			if (index >= 0 && state[index].count > 1) {
+				state[index] = { ...state[index], count: state[index].count - 1 };
+				setCart(state);
+				dispatch({ type: "REMOVE_FROM_CART", payload: state });
+			} else {
+				const newState = cart.filter((el) => el.item.title !== item.title);
+				console.log(newState);
 				setCart(newState);
 				dispatch({ type: "REMOVE_FROM_CART", payload: newState });
 			}
+		} catch (error) {
+			console.log(error);
 		}
 	};
 
