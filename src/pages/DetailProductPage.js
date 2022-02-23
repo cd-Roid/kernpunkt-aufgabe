@@ -1,10 +1,21 @@
-import React from "react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
 
-const DetailProductPage = ({ item }) => {
+const DetailProductPage = () => {
+	let param = useParams().title;
+	const [products] = useState(useSelector((state) => state.products));
 	const [cart, setCart] = useState(useSelector((state) => state.cart));
 	const dispatch = useDispatch();
+	const [item, setItem] = useState();
+
+	useEffect(() => {
+		const productCopy = products[0].products;
+
+		const newItem = productCopy.findIndex((product) => product.title === param);
+		setItem(productCopy[newItem]);
+	}, []);
+
 	const addToCart = (item) => {
 		try {
 			const state = cart;
@@ -39,7 +50,7 @@ const DetailProductPage = ({ item }) => {
 						<img src={item.image} alt={item.title} />
 					</div>
 					<section>
-						<h1>item.title</h1>
+						<h1>{item.title}</h1>
 						<p>1 each</p>
 					</section>
 					<section>
