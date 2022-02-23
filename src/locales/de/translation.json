@@ -1,0 +1,23 @@
+{
+    "applicant-heading": "Bewerber",
+    "total": "Gesamt",
+    "new": "Neu",
+    "viewed": "Besichtigt",
+    "appointment": "Termin vereinbart",
+    "others": "Andere",
+    "search-placeholder": "Nach Bewerber suchen",
+    "descending": "absteigend",
+    "ascending": "aufsteigend",
+    "property-viewed": "Besichtigt",
+    "appointment-set": "Termine",
+    "interessted": "Interessiert",
+    "offer-accepted": "Angebot angenommen",
+
+    "contact-support": "Support kontaktieren",
+    "logout": "Ausloggen",
+
+    "server-error": "Serverfehler! Bitte versuchen Sie es später erneut.",
+    "reload": "Neu laden",
+    "no-applicants-error": "Keine Bewerber verfügbar."
+  }
+  

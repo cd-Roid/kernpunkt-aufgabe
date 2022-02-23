@@ -1,0 +1,22 @@
+{
+  "applicant-heading": "Applicants",
+  "total": "Total",
+  "new": "New",
+  "viewed": "Viewed",
+  "appointment": "Appointment",
+  "others": "Others",
+  "search-placeholder": "Search for applicant",
+  "descending": "Descending",
+  "ascending": "Ascending",
+  "property-viewed": "Property Viewed",
+  "appointment-set": "Appointment Set",
+  "interessted": "Interessted",
+  "offer-accepted": "Offer Accepted",
+
+  "contact-support": "Contact Support",
+  "logout": "Logout",
+
+  "server-error": "Servererror! Please try again later.",
+  "reload": "Reload",
+  "no-applicants-error": "No matching applicants."
+}
