@@ -6,7 +6,9 @@ import Meta from "antd/lib/card/Meta";
 import data from "./mockData/data";
 
 function App() {
-	const [products, setProducts] = useState(useSelector((state) => state.test));
+	const [products, setProducts] = useState(
+		useSelector((state) => state.products),
+	);
 	const [cart, setCart] = useState(useSelector((state) => state.cart));
 	const dispatch = useDispatch();
 
