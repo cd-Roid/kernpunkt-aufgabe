@@ -16,14 +16,30 @@ function App() {
 	}, [dispatch]);
 
 	const addToCart = (item) => {
-		if (cart.length === 0) {
-			setCart([item]);
-			dispatch({ type: "ADD_TO_CART", payload: item });
-		} else {
-			const newState = [...cart, item];
-			setCart(newState);
-			dispatch({ type: "ADD_TO_CART", payload: newState });
+		try {
+			const state = cart;
+			const index = state.findIndex((el) => el.item.title === item.title);
+			const cartItem = {
+				item: item,
+				count: 1,
+			};
+			if (cart.length === 0) {
+				setCart([cartItem]);
+				dispatch({ type: "ADD_TO_CART", payload: cartItem });
+			}
+			if (index >= 0) {
+				state[index] = { ...state[index], count: state[index].count + 1 };
+				setCart(state);
+				dispatch({ type: "ADD_TO_CART", payload: state });
+			} else {
+				const newState = [...cart, cartItem];
+				setCart(newState);
+				dispatch({ type: "ADD_TO_CART", payload: newState });
+			}
+		} catch (error) {
+			console.log(error);
 		}
+
 	};
 	const removeFromCart = (item) => {
 		if (cart.length === 0) {
