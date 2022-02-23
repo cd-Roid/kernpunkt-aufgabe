@@ -14,6 +14,16 @@ function App() {
 		dispatch({ type: "GET_ALL_PRODUCTS", payload: data });
 	}, [dispatch]);
 
+	const addToCart = (item) => {
+		if (cart.length === 0) {
+			setCart([item]);
+			dispatch({ type: "ADD_TO_CART", payload: item });
+		} else {
+			const newState = [...cart, item];
+			setCart(newState);
+			dispatch({ type: "ADD_TO_CART", payload: newState });
+		}
+	};
 	return (
 		<div className="App">
 			{products
