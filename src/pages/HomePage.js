@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Card, Button } from "antd";
 import Meta from "antd/lib/card/Meta";
 import data from "../mockData/data";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
 	const [products, setProducts] = useState(
@@ -42,16 +43,18 @@ const HomePage = () => {
 			{products
 				? products.map((item) => (
 						<div>
-							<Card
-								onClick={() => {}}
-								style={{ width: 240 }}
-								cover={<img alt={item.title} src={item.image} />}
-							>
-								<Meta title={item.title} description={item.description} />
-							</Card>
-							<Button type="primary" onClick={() => removeFromCart(item)}>
-								Subtract
-							</Button>
+							<Link to={item.title}>
+								<Card
+									onClick={() => {}}
+									style={{ width: 240 }}
+									cover={<img alt={item.title} src={item.image} />}
+								>
+									<Meta title={item.title} description={item.description} />
+								</Card>
+								<Button type="primary" onClick={() => removeFromCart(item)}>
+									Subtract
+								</Button>
+							</Link>
 						</div>
 				  ))
 				: "No Products available"}
